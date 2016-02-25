@@ -1,0 +1,31 @@
+#!/usr/bin/python
+# -*- coding:utf-8 -*- 
+import xlrd
+import xlwt
+
+def read_excel():
+    workbook = xlrd.open_workbook("掌阅iReader发版准备信息.xls")
+    print workbook.sheet_names()
+    sheet = workbook.sheet_by_index(0)
+    
+    #打印sheet1表格的名字，行数，列数
+    print sheet.name, sheet.nrows, sheet.ncols
+    
+    #获取某行某列值
+    rows = sheet.row_values(0)
+    clos = sheet.col_values(0)
+    #print rows 
+    #print clos
+    
+    #获取单元格内容
+    print sheet.cell(1,0).value
+    print sheet.cell_value(2,0)
+    print sheet.row(3)[0].value
+    
+    #获取单元格的数据类型
+    print sheet.cell(1,0)
+    
+
+
+if __name__ =='__main__':
+    read_excel()
